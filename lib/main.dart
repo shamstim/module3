@@ -106,10 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
             //   style: Theme.of(context).textTheme.headline4,
             //),
 
-            SvgPicture.asset(
-              "assets/images/icon.svg",
-              semanticsLabel: "from assets/images",
-            )
+            SvgPicture.asset("assets/images/icon.svg",
+                semanticsLabel: "from assets/images", width: 200)
           ],
         ),
       ),
