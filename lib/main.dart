@@ -105,9 +105,22 @@ class _MyHomePageState extends State<MyHomePage> {
             //   '$_counter',
             //   style: Theme.of(context).textTheme.headline4,
             //),
+            Container(
+              padding: const EdgeInsets.all(50),
+              child: SvgPicture.network(
+                  'https://acdn.tinkoff.ru/static/documents/ae939645-bcda-4636-b349-6e446aa41aa1.svg',
+                  semanticsLabel: 'from Network',
+                  width: 300,
+                  placeholderBuilder: (BuildContext context) => Container(
+                      padding: const EdgeInsets.all(30),
+                      child: const CircularProgressIndicator())),
+            ),
 
-            SvgPicture.asset("assets/images/icon.svg",
-                semanticsLabel: "from assets/images", width: 200)
+            Container(
+              padding: const EdgeInsets.all(30),
+              child: SvgPicture.asset("assets/images/icon.svg",
+                  semanticsLabel: "from assets/images", width: 90),
+            ),
           ],
         ),
       ),
