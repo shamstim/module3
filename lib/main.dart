@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 final String assetName = 'assets/images/icon.svg';
 
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SvgPicture.network(
                   'https://acdn.tinkoff.ru/static/documents/ae939645-bcda-4636-b349-6e446aa41aa1.svg',
                   semanticsLabel: 'from Network',
-                  width: 300,
+                  width: 200,
                   placeholderBuilder: (BuildContext context) => Container(
                       padding: const EdgeInsets.all(30),
                       child: const CircularProgressIndicator())),
@@ -119,8 +120,27 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: const EdgeInsets.all(30),
               child: SvgPicture.asset("assets/images/icon.svg",
-                  semanticsLabel: "from assets/images", width: 90),
+                  semanticsLabel: "from assets/images", width: 70),
             ),
+
+            Container(
+              height: 300,
+              child: CarouselSlider(
+                options: CarouselOptions(height: 400.0),
+                items: [1, 2, 3, 4].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          decoration: BoxDecoration(),
+                          child:
+                              Image.asset('assets/images/$i.jpg', width: 100));
+                    },
+                  );
+                }).toList(),
+              ),
+            )
           ],
         ),
       ),
